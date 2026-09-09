@@ -18,12 +18,14 @@ Forge 固有部分は `forge_neo/ja_JP.json` に分離しています。Forge Cl
 
 - Forge のモデル選択 UI (`UI Preset`, `VAE / Text Encoder`, `Diffusion in Low Bits` など)
 - 各プリセットの設定項目
-- Forge Canvas の設定
-- 統合 ControlNet の UI
+- Forge Canvas の設定・ツールバー・動的なブラシ表示
+- 統合 ControlNet の UI とモード選択
 - Torch Compile Integrated
 - LoRA Control Integrated
 
 従来の AUTOMATIC1111 側の翻訳ファイルを丸ごと置き換えない構成なので、既存訳を維持しつつ Forge 固有文字列だけを更新できます。
+
+Forge Canvas の `Brush Width (25)` のように値を含んで変化する表示には `@@` で始まる正規表現キーを使用します。Forge Classic neo の標準Localizationは完全一致のみのため、`javascript/forge_neo_regex_localization.js` がネイティブLocalizationでもこれらのキーを処理します。
 
 ## インストール
 
@@ -55,21 +57,24 @@ Bilingual Localization を使う場合は、通常の `Settings` → `User inter
 
 ```text
 localizations/
-└─ ja_JP.json                 # 従来の日本語訳
+└─ ja_JP.json                         # 従来の日本語訳
 
 forge_neo/
-└─ ja_JP.json                 # Forge Classic neo 固有の追加・上書き翻訳
+└─ ja_JP.json                         # Forge Classic neo 固有の追加・上書き翻訳
 
 scripts/
-├─ forge_classic_neo_helper.py       # Forge native localization へオーバーレイを追加
-└─ bilingual_localization_helper.py  # Bilingual 用にベース + Forge を結合
+├─ forge_classic_neo_helper.py        # Forge native localization へオーバーレイを追加
+└─ bilingual_localization_helper.py   # Bilingual 用にベース + Forge を結合
+
+javascript/
+└─ forge_neo_regex_localization.js    # native localization で @@regex を処理
 ```
 
 ## 翻訳の追加・修正
 
 共通 UI の翻訳は `localizations/ja_JP.json`、Forge Classic neo 固有 UI の翻訳は `forge_neo/ja_JP.json` を編集してください。
 
-Forge の UI 文字列は完全一致で参照されるため、大文字・小文字や句読点が変わった場合は別キーとして追加する必要があります。
+Forge の通常の UI 文字列は完全一致で参照されるため、大文字・小文字や句読点が変わった場合は別キーとして追加する必要があります。値を含んで動的に変化する表示には `@@` 正規表現キーを使用できます。
 
 ## Credits
 
