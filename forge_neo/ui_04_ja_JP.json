@@ -1,0 +1,22 @@
+{
+  "Generate Canvas": "キャンバスを生成",
+  "Advanced Parameters": "詳細パラメータ",
+  "Number of Subjects": "被写体数",
+  "0 for Blank Canvas": "0で空のキャンバス",
+  "Vertical Position": "垂直位置",
+  "Randomize Bias": "ランダム化の偏り",
+  "Rectangle": "長方形",
+  "Oval": "楕円",
+  "Mask Shape": "マスク形状",
+  "Upload an OpenPose .json": "OpenPoseの.jsonをアップロード",
+  "Upload JSON": "JSONをアップロード",
+  "Download the Pose as .json": "Poseを.jsonとしてダウンロード",
+  "Preview as input is enabled.": "プレビューを入力として使用します。",
+  "Download Preview": "プレビューをダウンロード",
+  "Close Preview": "プレビューを閉じる",
+  "Open New Canvas": "新しいキャンバスを開く",
+  "New Canvas Width": "新しいキャンバスの幅",
+  "New Canvas Height": "新しいキャンバスの高さ",
+  "Create New Canvas": "新しいキャンバスを作成",
+  "Set the preprocessor to [invert] If your image has white background and black lines.": "画像が白背景に黒線の場合は、プリプロセッサを[invert]に設定してください。"
+}
