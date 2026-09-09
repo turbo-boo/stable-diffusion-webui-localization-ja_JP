@@ -15,7 +15,13 @@ def forge_neo_overlays():
 
     base_overlay = root / "ja_JP.json"
     overlays = [base_overlay] if base_overlay.is_file() else []
-    overlays.extend(sorted(path for path in root.glob("*_ja_JP.json") if path.is_file()))
+    overlays.extend(
+        sorted(
+            path
+            for path in root.glob("*_ja_JP.json")
+            if path.is_file() and not path.name.startswith(".")
+        )
+    )
     return overlays
 
 
